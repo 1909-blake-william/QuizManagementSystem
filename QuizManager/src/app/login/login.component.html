@@ -1,0 +1,18 @@
+
+<!-- Admin must log in first and register users before a user is allowed to login-->
+<!--<form [(ngModel)]="user.typeId">-->
+    <form onsubmit="logIn(credentials)">
+
+    <input type = "text" placeholder="username">
+    <br>
+    <br>
+    <input type = "password" placeholder="password">
+    <br>
+    <br>
+    <input type = "submit" >
+
+    <!--*ngIf()="adminLogIn()"
+    <ng-template [ngIf]="adminLogIn" routerLink="/adminHomePage" [ngIfElse]="!adminLogIn" routerLink = "/homePage">
+        
+    </ng-template>-->
+</form>
