@@ -7,8 +7,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+
 public class DispatcherServlet extends HttpServlet {
 	//Instancde Variables
+	private static final long serialVersionUID = 1L;
+	private final Logger logger = LogManager.getLogger(getClass());
+	private final DispatcherServices dispatcherHandler = DispatcherHandler.getInstance();
 	
 	//service
 	/*@Override
@@ -24,12 +31,27 @@ public class DispatcherServlet extends HttpServlet {
 		super.service(req, resp);
 
 	}*/
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-		
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		if (dispatcherHandler.supports(req)) {
+			dispatcherHandler.performService(req, resp);
+		} else {
+			resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
+			return;
+		}
 	}
-	
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
-		
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// We need to configure the different options such that our application
+		// can RESPOND to any client, as long as it's a valid request to our resource
+		logger.info("{} request coming to {}", req.getMethod(), req.getRequestURI());
+		if (dispatcherHandler.supports(req)) {
+			dispatcherHandler.performService(req, resp);
+		} else {
+			resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
+			return;
+		}
 	}
 	
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) {

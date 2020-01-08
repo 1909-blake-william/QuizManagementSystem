@@ -30,15 +30,15 @@ public class QuizHandler {
  
 
 	
-	public void handleGetAllGrades(){
+	public static void handleGetAllGrades(){
 		
 	}
 	
-	public Quiz handleGetOneGrade(HttpServletRequest request, HttpServletResponse response){
-		return null;
+	public static void handleGetOneGrade(HttpServletRequest request, HttpServletResponse response){
+		
 	}
 	
-	public void handleGetAllQuizzes(HttpServletRequest request, HttpServletResponse response){
+	public static void handleGetAllQuizzes(HttpServletRequest request, HttpServletResponse response){
 		List<Quiz> quizzes = quizDao.getAllQuizzes();
 		if (quizzes.isEmpty()) {
 			response.setStatus(HttpServletResponse.SC_NO_CONTENT);
@@ -56,7 +56,7 @@ public class QuizHandler {
 		}
 	}
 	
-	public void handleGetOneQuiz(HttpServletRequest request, HttpServletResponse response) {
+	public static void handleGetOneQuiz(HttpServletRequest request, HttpServletResponse response) {
 		String[] path = request.getRequestURI().split("/");
 		int quizId = Integer.parseInt(path[path.length - 1]);
 		Quiz oneQuiz = quizDao.getQuizById(quizId);

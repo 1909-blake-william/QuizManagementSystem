@@ -34,7 +34,7 @@ public class ServletFilter{
 	//test this method
 	public boolean getCurrentQuizzesHomePage(HttpServletRequest request) {
 		if (request.getMethod().equals("GET") && 
-			request.getRequestURI().contains("/QuizManagementSystem/api/currentquizzes/*")) {
+			request.getRequestURI().equals("/QuizManagementSystem/api/currentquizzes/")) {
 			return true;
 		} else {
 			return false;
@@ -44,7 +44,7 @@ public class ServletFilter{
 	
 	public boolean getPastQuizzesHomePage(HttpServletRequest request) {
 		if (request.getMethod().contentEquals("GET") && 
-			request.getRequestURI().contains("/QuizManager/api/past quizzes/*")) {
+			request.getRequestURI().equals("/QuizManager/api/past quizzes/")) {
 			return true;
 		} else {
 			return false;
@@ -53,7 +53,7 @@ public class ServletFilter{
 	
 	public boolean getGrades(HttpServletRequest request) {
 		if (request.getMethod().contentEquals("GET") &&
-			request.getRequestURI().contains("/QuizManager/api/grades/*")) {
+			request.getRequestURI().equals("/QuizManager/api/grades/*")) {
 			return true;
 		} else {
 			return false;
@@ -61,7 +61,7 @@ public class ServletFilter{
 	}
 	public boolean createQuiz(HttpServletRequest request) {
 		if (request.getMethod().contentEquals("POST") &&
-				request.getRequestURI().contains("/QuizManager/api/current quizzes/create new quiz")) {
+				request.getRequestURI().equals("/QuizManager/api/current quizzes/create new quiz")) {
 			return true;
 		} else {
 			return false;
@@ -70,7 +70,7 @@ public class ServletFilter{
 	//test this method
 	public boolean createQuizQuestions(HttpServletRequest request) {
 		if (request.getMethod().contentEquals("POST") &&
-				request.getRequestURI().contains("/QuizManager/api/current quizzes/create new quiz/*")) {
+				request.getRequestURI().equals("/QuizManager/api/current quizzes/create new quiz/*")) {
 			return true;
 		} else {
 			return false;

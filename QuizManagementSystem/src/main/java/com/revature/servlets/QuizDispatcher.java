@@ -12,16 +12,16 @@ public class QuizDispatcher implements DispatcherServices {
 		// TODO Auto-generated method stub
 		
 		if(filter.createQuiz(request)) {
-			
+		
 		} else if (filter.createQuizQuestions(request)) {
 			
 		} else if (filter.getCurrentQuizzesHomePage(request)) {
-			
+			QuizHandler.handleGetAllQuizzes(request, response);
 		} else if (filter.getGrades(request)) {
 			
 		} else if (filter.getPastQuizzesHomePage(request)) {
 			
-		}
+		} 
 	}
 
 	@Override

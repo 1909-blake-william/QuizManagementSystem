@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import { QuizService } from '../quiz.service';
 
 
 @Component({
@@ -9,7 +10,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class CurrentQuizzesComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private quizService: QuizService) { }
   
   ngOnInit() {
   }

@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { NewQuizComponent } from './new-quiz/new-quiz.component';
 import { NavComponent } from './nav/nav.component';
 /*import { GradesComponent } from './grades/grades.component';
 import { PastQuizzesComponent } from './past-quizzes/past-quizzes.component';
@@ -20,7 +19,6 @@ import { RegisterUserComponent } from './register-user/register-user.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    NewQuizComponent,
     NavComponent,
     componentRoutes,
     TakeQuizComponent,
